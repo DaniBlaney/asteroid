@@ -120,6 +120,9 @@ function newShip() {
 }
 
 function update() {
+    var blinkOn = ship.blinkNum % 2 == 0;
+    var exploding = ship.explodeTime > 0;
+
     // draw space
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
