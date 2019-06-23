@@ -1,17 +1,3 @@
-//Dependencies
-var express = require("express");
-
-//Define port the server will be listening on.
-var PORT = process.env.PORT || 8080;
-
-var app = express();
-
-app.listen(PORT, function() {
-    console.log("App is listening at localhost:" + PORT);
-  });
-
-
-
 // const FPS = 30; // frames per second
 // const FRICTION = 0.7; // friction coefficient of space (0 = no friction, 1 = lots of friction)
 // const LASER_DIST = 0.6; // max distance laser can travel as fraction of screen width
