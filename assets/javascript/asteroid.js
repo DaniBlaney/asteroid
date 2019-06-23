@@ -5,27 +5,23 @@ const ROID_NUM = 3; // starting number of asteroids
 const ROID_SIZE = 100; // starting size of asteroids in pixels
 const ROID_SPD = 50; // max starting speed of asteroids in pixels per second
 const ROID_VERT = 10; // average number of vertices on each asteroid
+const SHIP_BLINK_DUR = 0.1; // duration in seconds of a single blink during ship's invisibility
+const SHIP_EXPLODE_DUR = 0.3; // duration of the ship's explosion in seconds
+const SHIP_INV_DUR = 3; // duration of the ship's invisibility in seconds
 const SHIP_SIZE = 30; // ship height in pixels
 const SHIP_THRUST = 5; // acceleration of the ship in pixels per second per second
 const TURN_SPEED = 360; // turn speed in degrees per second
+const SHOW_BOUNDING = false; // show or hide collision bounding
+const SHOW_CENTRE_DOT = false; // show or hide ship's centre dot
 
-// @type {HTMLCanvasElement} //
+/** @type {HTMLCanvasElement} */
 var canv = document.getElementById("gameCanvas");
 var ctx = canv.getContext("2d");
+console.log(ctx); // CanvasRenderingContext2D { ... }
 
 // set up the spaceship object
-var ship = {
-    x: canv.width / 2,
-    y: canv.height / 2,
-    r: SHIP_SIZE / 2,
-    a: 90 / 180 * Math.PI, // convert to radians
-    rot: 0,
-    thrusting: false,
-    thrust: {
-        x: 0,
-        y: 0
-    }
-}
+var ship = newShip();
+
 //set up the asteroids
 var roids = [];
 createAsteroidBelt();
@@ -52,6 +48,10 @@ function createAsteroidBelt() {
 
 function distBetweenPoints(x1, y1, x2, y2){
     return Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+}
+
+function explodeShip() {
+    ship.explodeTime = Math.ceil(SHIP_EXPLODE_DUR * FPS);
 }
 
 function keyDown(/** @type {KeyboardEvent} */ ev) {
@@ -98,6 +98,24 @@ function newAsteroid(x,y) {
         roid.offs.push(Math.random() * ROID_JAG * 2 + 1 - ROID_JAG);
     }
     return roid;
+}
+
+function newShip() {
+    return {
+        x: canv.width / 2,
+        y: canv.height / 2,
+        a: 90 / 180 * Math.PI, // convert to radians
+        r: SHIP_SIZE / 2,
+        blinkNum: Math.ceil(SHIP_INV_DUR / SHIP_BLINK_DUR),
+        blinkTime: Math.ceil(SHIP_BLINK_DUR * FPS),
+        explodeTime: 0,
+        rot: 0,
+        thrusting: false,
+        thrust: {
+            x: 0,
+            y: 0
+        }
+    }
 }
 
 function update() {
