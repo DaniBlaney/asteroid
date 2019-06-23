@@ -27,7 +27,7 @@ src: url('Tr2n.ttf');
   border:2px solid;
   border-radius:100px;
   text-align:center;
-  background: url(../images/purple.png);
+  background: url(../images/purplebackground.png);
 }
 #gameCanvas{
   border:cyan 3px solid;
