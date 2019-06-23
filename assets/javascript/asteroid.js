@@ -84,14 +84,15 @@ function keyUp(/** @type {KeyboardEvent}*/ ev) {
 
 function newAsteroid(x,y) {
     var roid = {
-        a: Math.random() * Math.PI * 2, //in radians
-        offs: [],
-        r: ROID_SIZE / 2,
-        vert: Math.floor(Math.random() * (ROID_VERT + 1) + ROID_VERT / 2),
         x: x,
         y:y,
         xv: Math.random() * ROID_SPD / FPS * (Math.random() < 0.5 ? 1: -1),
         yv: Math.random() * ROID_SPD / FPS * (Math.random() < 0.5 ? 1: -1)
+        a: Math.random() * Math.PI * 2, //in radians
+        r: ROID_SIZE / 2,
+        offs: [],
+        vert: Math.floor(Math.random() * (ROID_VERT + 1) + ROID_VERT / 2),
+
     };
     //offsets array
     for (var i = 0; i < roid.vert; i++){
