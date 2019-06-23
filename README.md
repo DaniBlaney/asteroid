@@ -1,4 +1,4 @@
-# Asteroid 🛸
+# Asteroid Blaster 🛸
 
 ## How it works:
 
