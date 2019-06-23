@@ -1,17 +1,17 @@
-/* @font-face
-{
-font-family: ffe;
-src: url('mygame.ttf');
-} */
 @font-face
+{
+font-family: mygame;
+src: url('mygame.ttf');
+}
+/* @font-face
 {
 font-family: tron;
 src: url('Tr2n.ttf');
-}
+} */
 #title{
-  font-family:tron;
+  font-family:mygame;
   font-size:30px;
-  text-shadow: 10px 10px 10px #000000;
+  text-shadow: 15px 15px 15px #000000;
  }
  text-shadow: 10px 10px 10px #000000;
 
