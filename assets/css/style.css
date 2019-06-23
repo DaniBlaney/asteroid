@@ -11,7 +11,9 @@ src: url('Tr2n.ttf');
 #title{
   font-family:mygame;
   font-size:30px;
-  text-shadow: 20px 20px 20px #000000;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: cyan;
+  text-shadow: 10px 10px 10px whitesmoke;
  }
  text-shadow: 10px 10px 10px #000000;
 
@@ -25,4 +27,8 @@ src: url('Tr2n.ttf');
   border:2px solid;
   border-radius:100px;
   text-align:center;
+  background: url(../images/purplebackground.png);
+}
+#gameCanvas{
+  border:cyan 3px solid;
 }
