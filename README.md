@@ -1,5 +1,7 @@
 # Asteroid Blaster 🛸
 
+https://asteroidblaster.herokuapp.com/
+
 ## How it works:
 
 This game was created with HTML5, CSS, and vanilla JavaScript!
