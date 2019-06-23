@@ -37,6 +37,19 @@ document.addEventListener("keyup", keyUp);
 // set up the game loop
 setInterval(update, 1000 / FPS);
 
+function createAsteroidBelt() {
+    roids = [];
+    var x, y;
+    for (var i = 0; i < ROID_NUM; i++){
+        //asteroid random location not touching ship
+        do {
+            x = Math.floor(Math.random()* canv.width);
+            y = Math.floor(Math.random() * canv.height);
+        } while (distBetweenPoints(ship.x, ship.y, x , y) < ROID_SIZE * 2 + ship.r);
+        roids.push(newAsteroid(x,y));
+    }
+}
+
 function keyDown(/** @type {KeyboardEvent} */ ev) {
     switch(ev.keyCode) {
         case 37: // left arrow (rotate ship left)
