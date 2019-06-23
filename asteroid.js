@@ -155,6 +155,55 @@ function update() {
     ctx.closePath();
     ctx.stroke();
 
+    //we draw our asteroids
+    ctx.strokeStyle = "slategray";
+    ctx.lineWidth = SHIP_SIZE / 20;
+    var a, r, x, y, offs, vert;
+    for (var i = 0; i < roids.length; i++) {
+
+        //get properties of asteroid
+        a = roids[i].a;
+        r = roids[i].r;
+        x = roids[i].x;
+        y = roids[i].y;
+        offs = roids[i].offs;
+        vert = roids[i].vert;
+
+        //draw the path
+        ctx.beginPath();
+        ctx.moveTo(
+            x + r * offs[0] * Math.cos(a),
+            y + r * offs[0] * Math.sin(a)
+        );
+
+        //draw the polygon
+        for (var j = 1; j < vert; j++) {
+            ctx.lineTo(
+                x + r * offs[j] * Math.cos(a + j * Math.PI * 2 / vert),
+                y + r * offs[j] * Math.sin(a + j * Math.PI * 2 / vert)
+            );
+        }
+        ctx.closePath();
+        ctx.stroke();
+
+        //move the asteroid
+        roids[i].x += roids[i].xv;
+        roids[i].y += roids[i].yv;
+
+        // handle asteroid edge of screen
+        if (roids[i].x < 0 - roids[i].r) {
+            roids[i].x = canv.width + roids[i].r;
+        } else if (roids[i].x > canv.width + roids[i].r) {
+            roids[i].x = 0 - roids[i].r
+        }
+        if (roids[i].y < 0 - roids[i].r) {
+            roids[i].y = canv.height + roids[i].r;
+        } else if (roids[i].y > canv.height + roids[i].r) {
+            roids[i].y = 0 - roids[i].r
+        }
+    }
+    
+
     // rotate the ship
     ship.a += ship.rot;
 
