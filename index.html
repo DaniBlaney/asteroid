@@ -1,12 +1,49 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+      <link rel="stylesheet" type="text/css" href="css4.css"/>
+
+      <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
+
+      <script type="text/javascript">
+
+      //We left this empty because this is the part we will use to do most of the programming part
+
+      </script>
+
 	</head>
 	<body>
 
+      <div id ="box">
 
 
+          <h1 id = "title">ASTEROID BLASTER</h1></br></br>
+          <table border="1" align="center">
 
-    
+            <tr>
+
+              <td>HIT:<p id="hit" ></p></td>
+
+              <hgroup>
+
+                <td>TOP SCORE:<h1 id="tophit"></h1></td>
+
+                <td>ENEMIES REMAINING:<h2 id="enemiesRemaining" ></h2></td>
+
+              </hgroup>
+
+              <td><p id="statusUpdates">STATUS UPDATES</p></td>
+
+              <td><input type="button" value="MASTER RESET" onclick="resetAll()"/></td>
+
+              <td><input type="button" value="START FALLING!" onclick="startFalling()" id="btx"/></td>
+
+            </tr>
+
+          </table></br>
+
+          <canvas id="theCanvas" width="1000" height ="500"  style="border:1px solid black" onclick = "hitIt()"></canvas>
+      </div>
+
 	</body>
 </html>
