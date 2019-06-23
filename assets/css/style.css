@@ -1,10 +1,28 @@
 @font-face
 {
-font-family: ffe;
-src: url('ffe.ttf');
+font-family: mygame;
+src: url('mygame.ttf');
 }
-@font-face
+/* @font-face
 {
 font-family: tron;
 src: url('Tr2n.ttf');
+} */
+#title{
+  font-family:mygame;
+  font-size:30px;
+  text-shadow: 20px 20px 20px #000000;
+ }
+ text-shadow: 10px 10px 10px #000000;
+
+ text - shadow: [horizontal shadow] [vertical shadow] [blur distance] [shadow color];
+
+ #statusUpdates{
+  -webkit-transition:color 100ms ease-in;
+ }
+
+ body{
+  border:2px solid;
+  border-radius:100px;
+  text-align:center;
 }
