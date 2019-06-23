@@ -9,7 +9,7 @@ const SHIP_SIZE = 30; // ship height in pixels
 const SHIP_THRUST = 5; // acceleration of the ship in pixels per second per second
 const TURN_SPEED = 360; // turn speed in degrees per second
 
-/** @type {HTMLCanvasElement} **/
+// @type {HTMLCanvasElement} //
 var canv = document.getElementById("gameCanvas");
 var ctx = canv.getContext("2d");
 
@@ -68,7 +68,7 @@ function keyDown(/** @type {KeyboardEvent} */ ev) {
     }
 }
 
-function keyUp(/** @type {KeyboardEvent} */ ev) {
+function keyUp(/** @type {KeyboardEvent}*/ ev) {
     switch(ev.keyCode) {
         case 37: // left arrow (stop rotating left)
             ship.rot = 0;
@@ -202,7 +202,7 @@ function update() {
             roids[i].y = 0 - roids[i].r
         }
     }
-    
+
 
     // rotate the ship
     ship.a += ship.rot;
