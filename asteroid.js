@@ -26,6 +26,9 @@ var ship = {
         y: 0
     }
 }
+//set up the asteroids
+var roids = [];
+createAsteroidBelt();
 
 // set up event handlers
 document.addEventListener("keydown", keyDown);
